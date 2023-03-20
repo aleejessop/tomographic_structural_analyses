@@ -1,6 +1,6 @@
 clear
 %read in tif volume and show
-greyscale = tiffreadVolume('C:\Users\20220428\OneDrive - Murdoch University\Documents\MATLAB\Sea_Urchin\data\greyscale\primitive.tiff'); %,'PixelRegion', {[26 75], [26 75], [26 75]});
+greyscale = tiffreadVolume('C:\Users\20220428\OneDrive - Murdoch University\Documents\MATLAB\Sea_Urchin\data\greyscale\primitive.tiff'); 
 volshow(greyscale);
 %convert uint16 to double
 intensity_values = double(greyscale)./(2^16);
