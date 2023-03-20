@@ -1,3 +1,4 @@
+%
 %filename = 'xxxx.tif';
 %pixelregion = [26 75];
 %binarize = 1
