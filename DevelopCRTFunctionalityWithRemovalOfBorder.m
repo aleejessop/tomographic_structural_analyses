@@ -24,10 +24,10 @@
 % disp("Data set created.");
 
 clear
-filename = ('C:\Users\20220428\OneDrive - Murdoch University\Documents\MATLAB\Sea_Urchin\data\greyscale\3_72_interambulacral_plate_filtered.tif');
+filename = ('C:\Users\20220428\Documents\MATLAB\sea_urchin\data\3_72_interambulacral_plate_filtered.tif');
 greyscale = tiffreadVolume(filename);
 binary = imbinarize(greyscale,0.46);
-binary = binary(200:900,200:900,200:900);
+binary = binary(501:1000,501:1000,501:1000);
 imshow(squeeze(binary(:,100,:)))
 
 paramsCRT.maximalCRTValueToCompute = 11;
