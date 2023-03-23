@@ -14,7 +14,7 @@ for i = 1:s(3)
     clf;
 %     imagesc(squeeze(skeleton(:,:,i))); axis equal tight
 %     hold on
-    imagesc(squeeze(data(:,i,:)),'AlphaData',0.5); axis equal tight
+    imagesc(squeeze(data(i,:,:)),'AlphaData',0.5); axis equal tight
     colormap hot
     colorbar
     drawnow;
