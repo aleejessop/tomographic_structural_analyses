@@ -33,16 +33,63 @@ A=A/sqrt(A*A');  % making them unit length
 B=LatticeVectorB;
 B=B/sqrt(B*B');
 C=cross(A,B); % calculate C vector as perpendicular to A and B
+if abs(A*B') > 1e-8
+    error("A and B not orthogonal");
+end
 
+% make sure A, B, C are colum vectors
+A=A';
+B=B';
+C=C';
+if isequal(size(A),[1 3]) & isequal(size(B),[1 3]) & isequal(size(C),[1 3])  
+    disp(A);
+    disp(B);
+    disp(C);
+    error("A, B or C not column vector");
+end
+
+% determine rotation matrix
+%
+% angle around z-axis to bring A into xz plan
+phi=-atan2(A(2),A(1));
+Rz = [cos(phi) -sin(phi) 0 ; sin(phi) cos(phi) 0 ; 0 0 1] ;
+AA=Rz*A;
+% determine angle for rotation around y-axis, so that A falls onto 
+% x-axis when Ry*(Rz*A) is applied
+alpha=atan2(A(3),sqrt((A(1))^2+(A(2))^2));
+Ry = [cos(alpha) 0 sin(alpha); 0 1 0; -sin(alpha) 0 cos(alpha)];
+AAA=Ry*(Rz*A);
+% angle around x-axis to bring vector b onto the y-axis
+BB=Ry*(Rz*B);
+if abs(BB(1))/(B'*B) > 10e-8
+    error("Vector B should be in yz plane after rotation");
+end
+gamma=-atan2(BB(3),BB(2));
+Rx = [1 0 0; 0 cos(gamma) -sin(gamma); 0 sin(gamma) cos(gamma)];
+BBB=Rx*BB;
+[AAA,BBB]
+devA=sqrt((AAA(1)-1)^2+(AAA(2)-0)^2+(AAA(3)-0)^2)/sqrt(A'*A);
+devB=sqrt((BBB(1))^2+(BBB(2)-1)^2+(BBB(3)-0)^2)/sqrt(B'*B);
+if devA > 1e-8 || devB > 1e-8
+    error("Coordinate rotation wrong");
+end
+RotMatrix=Rx*Ry*Rz;
+InverseRotMatrix=inv(RotMatrix);
 
 for i=1:nx
     for j=1:ny
         for k=1:nz
+            % pixel in image coordinates in microns
             xyz=[(i-0.5)*PixelSize,(j-0.5)*PixelSize,(k-0.5)*PixelSize]; % pixel coordinate in microns
             T=xyz-Origin;
-            X=T*A';  % position of xyz in rotated reference frame in microns
-            Y=T*B';
-            Z=T*C';
+             % position of xyz in rotated reference frame in microns
+            XYZ=InverseRotMatrix*xyz';
+            X=XYZ(1);
+            Y=XYZ(2);
+            Z=XYZ(3);
+%             X=T*A';  % position of xyz in rotated reference frame in microns
+%             Y=T*B';
+%             Z=T*C';
             if lower(surfaceName)=="primitive" || lower(surfaceName)=="p"
                 nodal(i,j,k) = cos(X*2*pi/CrystA)+cos(Y*2*pi/CrystA)+cos(Z*2*pi/CrystA);
             elseif lower(surfaceName)=="gyroid" || lower(surfaceName)=="g"
