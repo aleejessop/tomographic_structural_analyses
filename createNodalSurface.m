@@ -1,6 +1,6 @@
 
 
-function binary = createNodalSurface(surfaceName,ImageSize, PixelSize, CrystA, LatticeVectorA, LatticeVectorB, Origin, Threshold)
+function binary = createNodalSurface(surfaceName, ImageSize, PixelSize, CrystA, LatticeVectorA, LatticeVectorB, Origin, Threshold)
 
 ImageSize;
 nx=ImageSize(1);
@@ -101,6 +101,10 @@ for i=1:nx
                 + cos(X*2*pi/CrystA)*cos(Y*2*pi/CrystA)*sin(Z*2*pi/CrystA); % D surface
             elseif lower(surfaceName)=="sphere" || lower(surfaceName)=="s"
                 nodal(i,j,k)=X^2+Y^2+Z^2;
+            elseif lower(surfaceName)=="scspheres" || lower(surfaceName)=="scs"
+                spherecenters=[[0,0,0];[1,0,0];[0,1,0];[1,1,0];[0,0,1];[1,0,1];[0,1,1];[1,1,1]];
+                r=[X,Y,Z];
+                nodal(i,j,k)=min(sum((spherecenters-r).^2,2));   
             else
                 disp("Should never get to here. Wrong surface type");
                 pause;
