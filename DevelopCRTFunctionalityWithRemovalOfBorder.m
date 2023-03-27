@@ -1,5 +1,5 @@
 
-
+%% simulated data
 
 N=15;
 PixelSize=1/N;
@@ -22,6 +22,15 @@ for i=1:size(binary,1)
 end 
 
 disp("Data set created.");
+
+%% sea urchin data
+
+filename = load('C:\Users\20220428\Documents\MATLAB\3_72_interambulacral_plate_filtered.tif');
+greyscale = tiffreadVolume(filename);
+binary = imbinarize(greyscale,0.46);
+
+
+%% run algorithm
 
 paramsCRT.maximalCRTValueToCompute = 11;
 paramsCRT.calculateCRTOnlyForRectangularSubset=1;
