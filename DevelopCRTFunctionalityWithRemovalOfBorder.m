@@ -30,7 +30,10 @@ binary = imbinarize(greyscale,0.46);
 binary = binary(1:1000,1:1000,501:1000);
 imshow(squeeze(binary(500,:,:)))
 
- 
+paramsCRT.maximalCRTValueToCompute = 11;
+paramsCRT.calculateCRTOnlyForRectangularSubset=1;
+paramsCRT.rectangularSubsetForCRTCalculation=[[3,3,3]',(size(binary)-7)'];
+[image0,image1,D,statusCRTComputation]=maxCoveringDistanceTransform(binary,paramsCRT);
 
 %data=statusCRTComputation; sliceview
 %data=image0; sliceview
