@@ -25,14 +25,15 @@ disp("Data set created.");
 
 %% sea urchin data
 
-filename = 'C:\Users\20220428\Documents\MATLAB\3_72_interambulacral_plate_filtered.tif';
+filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\MATLAB\3_72_interambulacral_plate_filtered.tif';
 greyscale = tiffreadVolume(filename);
 binary = imbinarize(greyscale,0.46);
+binary = 1-binary;
 
 
 %% run algorithm
 
-paramsCRT.maximalCRTValueToCompute = 11;
+paramsCRT.maximalCRTValueToCompute = 40;
 paramsCRT.calculateCRTOnlyForRectangularSubset=1;
 paramsCRT.rectangularSubsetForCRTCalculation=[[3,3,3]',(size(binary)-7)'];
 [image0,image1,D,statusCRTComputation]=maxCoveringDistanceTransform(binary,paramsCRT);
