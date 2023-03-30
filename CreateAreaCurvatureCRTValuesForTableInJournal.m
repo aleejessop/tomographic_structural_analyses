@@ -294,6 +294,7 @@ end
 VoidPhaseStandardDevMaxCoverRadiusTrafo=sqrt(max(0,VoidPhaseMeanSquareCoverRadiusTrafo-VoidPhaseMeanValueMaxCoverRadiusTrafo.^2));
 SolidPhaseStandardDevMaxCoverRadiusTrafo=sqrt(max(0,SolidPhaseMeanSquareCoverRadiusTrafo-SolidPhaseMeanValueMaxCoverRadiusTrafo.^2));
 
+
 % Create graph with data for each orientation
 close all;
 hold off;
