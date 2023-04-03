@@ -25,19 +25,21 @@ disp("Data set created.");
 
 %% sea urchin data
 clear
-filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\MATLAB\Sea_Urchin\data\greyscale\1_69_inner_interambulacral_plate.tif';
+filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\1_69_inner_interambulacral_plate_newly_derived.tiff';
 greyscale = tiffreadVolume(filename);
+imagesc(squeeze(binary(:,:,1500)))
 binary = imbinarize(greyscale,0.51);
+binary = binary(250:1300,300:1500,250:1500);
 binary = 1-binary;
 
 
 %% run algorithm
 
-paramsCRT.maximalCRTValueToCompute = 11;
+paramsCRT.maximalCRTValueToCompute = 25;
 paramsCRT.calculateCRTOnlyForRectangularSubset=1;
 paramsCRT.rectangularSubsetForCRTCalculation=[[3,3,3]',(size(binary)-7)'];
 [image0,image1,D,statusCRTComputation]=maxCoveringDistanceTransform(binary,paramsCRT);
-
+save('CRT_solid_phase_169.mat','image0','image1','D','paramsCRT','statusCRTComputation','-v7.3')
 %data=statusCRTComputation; sliceview
 %data=image0; sliceview
 
