@@ -1,9 +1,9 @@
 clear
-filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\Diamond_sample_1.tiff';
+filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\Disordered_sample1.tiff';
 greyscale = tiffreadVolume(filename);
 binary = imbinarize(greyscale,0.51);
 PixelSize = 1.69;
-VoxelsToAnalyse = [1,95;1,95;1,95];
+VoxelsToAnalyse = [48,142;48,142;48,142];
 parameters.fractionEuclidDistanceToFit=0.50;
 parameters.EulerMethod="fitAreaMeanCurvatureAndEuler";
 

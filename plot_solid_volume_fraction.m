@@ -1,12 +1,14 @@
 
 %% load data, binarize and calculate solid volume fraction
 clear
-filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\1_69_inner_interambulacral_plate_newly_derived.tiff';;
+% filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\1_69_inner_interambulacral_plate_newly_derived.tiff';;
+filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\732nm_inner_interambulacral_plate_newly_derived.tiff';
 % filename = ('C:\Users\20220428\OneDrive - Murdoch University\Documents\Sea Urchin\Figures\Figure3\Diamond_sample1.tiff');
 greyscale = tiffreadVolume(filename);
-binary = imbinarize(greyscale,0.51);
+binary = imbinarize(greyscale,0.47);
 %padding = padarray(temp,[2 0 8],0,'post');
-temp = binary(1:1400,1:1750,1:1700);
+% temp = binary(1:1400,1:1750,1:1700);
+temp = binary(1:1100,1:1100,1:1050);
 size_subvolume = 50;
 [subvolume] = subvolume_extraction(temp, size_subvolume);
 [volume_fraction] = solid_volume_fraction(subvolume);
