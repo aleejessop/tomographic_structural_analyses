@@ -105,6 +105,10 @@ for i=1:nx
                 spherecenters=[[0,0,0];[1,0,0];[0,1,0];[1,1,0];[0,0,1];[1,0,1];[0,1,1];[1,1,1]];
                 r=[mod(X,1),mod(Y,1),mod(Z,1)];
                 nodal(i,j,k)=sqrt(min(sum((spherecenters-r).^2,2)));   
+            elseif lower(surfaceName)=="bccspheres" || lower(surfaceName)=="bccs"
+                spherecenters=[[0.5,0.5,0.5];[0,0,0];[1,0,0];[0,1,0];[1,1,0];[0,0,1];[1,0,1];[0,1,1];[1,1,1]];
+                r=[mod(X,1),mod(Y,1),mod(Z,1)];
+                nodal(i,j,k)=sqrt(min(sum((spherecenters-r).^2,2)));   
             else
                 disp("Should never get to here. Wrong surface type");
                 pause;

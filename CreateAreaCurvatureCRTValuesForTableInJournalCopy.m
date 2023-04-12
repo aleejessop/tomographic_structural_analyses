@@ -19,20 +19,7 @@ for i=1:length(surfaceArea)
     surfaceArea(i)=SurfaceAreaTranslationalUnitNodalSurface(surfaceType,thresholds(i),surfaceAreaDiscretisation);
 end
 
-% d surface
-N=170 ;
-PixelSize=1/N;
-surfaceType="d";
-KnownEulerNumber=-16;
-thresholds=[0,0.196,0.462];
-meanCurvaturesExact=[0,-0.57,-1.47];
-EulerNumberExact=[KnownEulerNumber,KnownEulerNumber,KnownEulerNumber];
-NOrientations=4; % this number must be < 4 (and check code)
-surfaceAreaDiscretisation=0.02;%0.005;
-surfaceArea=zeros(1,length(thresholds));
-for i=1:length(surfaceArea)
-    surfaceArea(i)=SurfaceAreaTranslationalUnitNodalSurface(surfaceType,thresholds(i),surfaceAreaDiscretisation);
-end
+
 
 % g surface
 N=30 ;
@@ -49,16 +36,45 @@ for i=1:length(surfaceArea)
     surfaceArea(i)=SurfaceAreaTranslationalUnitNodalSurface(surfaceType,thresholds(i),surfaceAreaDiscretisation);
 end
 
+
+
+% d surface
+N=150;
+PixelSize=1/N;
+surfaceType="d";
+KnownEulerNumber=-16;
+thresholds=[-0.5575,-0.535,-0.511,-0.486];%[0,0.196,0.462];
+meanCurvaturesExact=[0,0,0,0];[0,-0.57,-1.47];
+EulerNumberExact=[KnownEulerNumber,KnownEulerNumber,KnownEulerNumber,KnownEulerNumber];
+NOrientations=4; % this number must be < 4 (and check code)
+surfaceAreaDiscretisation=0.02;%0.005;
+surfaceArea=zeros(1,length(thresholds));
+for i=1:length(surfaceArea)
+    surfaceArea(i)=SurfaceAreaTranslationalUnitNodalSurface(surfaceType,thresholds(i),surfaceAreaDiscretisation);
+end
+
 % simple cubic spheres
 N=50;
 PixelSize=1/N;
 surfaceType="scs";
-radius=[0.25];
+radius=[0.25,0.2,0.33333333333];
 thresholds=radius;
 KnownEulerNumber=2;
 EulerNumberExact=ones(1,length(radius))*KnownEulerNumber;
 meanCurvaturesExact=1./radius;
 surfaceArea=4*pi*radius.^2;
+NOrientations=4; % only 1 orientation possible for sphere
+
+% bcc cubic spheres
+N=100;
+PixelSize=1/N;
+surfaceType="bccs";
+radius=[sqrt(3)/4,sqrt(3)/5,sqrt(3)/6];
+thresholds=radius;
+KnownEulerNumber=4;
+EulerNumberExact=ones(1,length(radius))*KnownEulerNumber;
+meanCurvaturesExact=1./radius;
+surfaceArea=2*4*pi*radius.^2;
 NOrientations=4; % only 1 orientation possible for sphere
 
 
