@@ -2,13 +2,14 @@ clear all;
 clear;
 % close all;
 N=50;
-CrystA = 1;
+CrystA = 2;
 PixelSize=CrystA/N;
 NVoxels=round([N,N,N]);
+%VoxelsToAnalyse=[N+1, 4*N-N; N+1, 4*N-N; N+1, 4*N-N];
 VoxelsToAnalyse=[N+1, 3*N-N; N+1, 3*N-N; N+1, 3*N-N];
 
 % parameters for bicontinuous surfaces
-Threshold=0.; %0.43 for a volume fraction of 0.32
+Threshold=0.7; %0.43 for a volume fraction of 0.32
 surfaceName="p";
 origin=[0,0,0];
 fractionEuclidDistanceToFit=0.5;
@@ -19,13 +20,17 @@ fractionEuclidDistanceToFit=0.5;
 %origin=[1.5,1.5,1.5];
 %fractionEuclidDistanceToFit=0.4;
 
+%binary=createNodalSurface(surfaceName,[4*N,4*N,4*N],PixelSize,CrystA,[1,0,0],[0,1,0],origin,Threshold);
 binary=createNodalSurface(surfaceName,[3*N,3*N,3*N],PixelSize,CrystA,[1,0,0],[0,1,0],origin,Threshold);
 
 % PixelSize = 0.7;
 % VoxelsToAnalyse = [42, 125; 50, 106; 35, 122];
 incrementSteps=0.5;  % this is in pixel units
 
-fitResults=CalculateAreaMeancurvEulerBySteinerOfVoxelisedParSurf(binary,PixelSize,VoxelsToAnalyse,fractionEuclidDistanceToFit);
+parameters.fractionEuclidDistanceToFit=fractionEuclidDistanceToFit;
+parameters.EulerMethod="fitAreaMeanCurvatureAndEuler";
+fitResults=CalculateAreaMeancurvEulerBySteinerOfVoxelisedParSurf(binary,PixelSize,VoxelsToAnalyse,parameters);
+%CalculateAreaMeancurvEulerBySteinerOfVoxelisedParSurf(binary,PixelSize,VoxelsToAnalyse,fractionEuclidDistanceToFit);
 area=fitResults.area;
 meanc=fitResults.meanc;
 Euler=fitResults.Euler;
