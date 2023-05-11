@@ -1,5 +1,5 @@
 clear
-filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\Primitive_sample3.tiff';
+filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\Diamond_sample8.tiff';
 greyscale = tiffreadVolume(filename);
 binary = imbinarize(greyscale,0.51);
 PixelSize = 1.69;

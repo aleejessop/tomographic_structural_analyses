@@ -1,6 +1,6 @@
 
 
-fname = 'primitive_volume_fraction042.tif';
+fname = 'diamond_33_028.tif';
 for n = 1:size(binary, 3)
     
     % Make an RGB image:

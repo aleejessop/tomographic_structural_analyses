@@ -1,14 +1,13 @@
 
 %calculate angle between vectors
 clear
-Znorm = [0 0 1];
-
+Zref = [1 0 0];
 
 for i = 1:size(Orientationanalysis,1)
 
     Ztest = Orientationanalysis(i,:);
-    dd = dot(Znorm,Ztest);
-    Znorm_mag = norm(Znorm); %norm calculates magnitude of a vector
+    dd = dot(Zref,Ztest);
+    Znorm_mag = norm(Zref); %norm calculates magnitude of a vector
     Ztest_mag = norm(Ztest);
     angle(i) = acosd(dd/(Znorm_mag*Ztest_mag))
 end
@@ -24,25 +23,73 @@ for ii = 1:size(Orientationanalysis,1)
 
 end
 
+%% plot 111 direction relative to reference onto sphere
 
+[x_s,y_s,z_s] = sphere(48);
+R = 0.99;
 
-[x_s,y_s,z_s] = sphere(12);
 figure(1);
-surf(x_s, y_s, z_s,'FaceColor','w')
+surf(x_s*R, y_s*R, z_s*R,'FaceColor','w','EdgeColor','none')
 axis equal
 axis off
 map = [0.8 0.8 0.8];
 colormap(map)
-shading flat
 hold on
-xlabel('x')
-ylabel('y')
-zlabel('z')
-marker_color = [0 0 0; 0.07 0.62 1.00; 0.72 0.27 1.00; 0.00 0.57 0.43; 0.98 0.98 0.51; 0.99 0.71 0.59;...
-    0.99 0.74 0.99; 0.71 0.98 0.52; 0.67 0.98 0.98];
-for i = 1:9
-    scatter3(Orientationanalysis(i,1),Orientationanalysis(i,2),Orientationanalysis(i,3), 20,'MarkerEdgeColor',marker_color(i,:),'MarkerFaceColor',marker_color(i,:),'LineWidth',1)
+
+%plot longtudinal lines
+
+Ai = [0:15:180];
+
+for i = 1:length(Ai)
+    E=-pi:pi/180:pi;
+    A=(Ai(i)*pi/180)*ones(size(E));
+    rE=ones(size(E));
+    [XE,YE,ZE]=sph2cart(A,E,rE);
+    plot3(XE,YE,ZE,'Color',[0.8 0.8 0.8])
     hold on
 end
-    grid off
+
+%plot latitude lines
+
+Ei = [-180:15:180];
+
+for i = 1:length(Ei)
+    A=-pi:pi/180:pi;
+    E=(Ei(i)*pi/180)*ones(size(A));
+    rE=ones(size(E));
+    [XE,YE,ZE]=sph2cart(A,E,rE);
+    plot3(XE,YE,ZE,'Color',[0.9 0.9 0.9])
+    hold on
+end
+
+
+%plot Z reference point
+
+scatter3(0,0,1,20,'MarkerEdgeColor',[0.5 0.5 0.5],'MarkerFaceColor',[0.5 0.5 0.5],'LineWidth',1)
+
+%plot ZX plane
+
+% scatter3(1,0,0, 20,'MarkerEdgeColor','k','MarkerFaceColor','k','LineWidth',1)
+R1 = 1.01;
+E=-pi:pi/180:pi;
+A=(0*pi/180)*ones(size(E));
+rE=ones(size(E));
+[XE,YE,ZE]=sph2cart(A,E,rE);
+plot3(XE*R1,YE*R1,ZE*R1,'Color',[0.5 0.5 0.5])
+
+%plot ZY plane
+
+% scatter3(0,1,0, 20,'MarkerEdgeColor','k','MarkerFaceColor','k','LineWidth',1)
+E=-pi:pi/180:pi;
+A=(90*pi/180)*ones(size(E));
+rE=ones(size(E));
+[XE,YE,ZE]=sph2cart(A,E,rE);
+plot3(XE*R1,YE*R1,ZE*R1,'Color',[0.5 0.5 0.5])
+
+%plot orientation points
+
+scatter3(Orientationanalysis(:,1),Orientationanalysis(:,2),Orientationanalysis(:,3), 3,'MarkerEdgeColor','k','MarkerFaceColor','k','LineWidth',1)
+
+
+
 
