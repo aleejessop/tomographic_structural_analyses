@@ -1,4 +1,4 @@
-%values for table of samples
+%values for Table 1
 
 clear
 load("CRT_solid_phase_169.mat")
@@ -15,8 +15,6 @@ size_subvolume = 50;
 resized_volume_fraction = imresize3(volume_fraction,size_subvolume,"nearest");
 padded_volume_fraction = padarray(resized_volume_fraction,[5 29 38],0,'post');
 imagesc(squeeze(padded_volume_fraction(:,:,760)),'AlphaData',1); axis equal tight;
-
- %check you are using the correct values here sometimes x and y are swapped
 
 data = image0; sliceview
 

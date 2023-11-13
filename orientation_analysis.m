@@ -1,4 +1,4 @@
-
+%load data from excel file
 %calculate angle between vectors
 clear
 Zref = [1 0 0];

@@ -1,6 +1,6 @@
 
 
-fname = 'diamond_33_028.tif';
+fname = 'diamond_30_030.tif';
 for n = 1:size(binary, 3)
     
     % Make an RGB image:
