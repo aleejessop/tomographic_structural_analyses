@@ -2,26 +2,27 @@
 %% load data, binarize and calculate solid volume fraction
 clear
 % filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\1_69_inner_interambulacral_plate_newly_derived.tiff';;
-filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\732nm_inner_interambulacral_plate_newly_derived.tiff';
-% filename = ('C:\Users\20220428\OneDrive - Murdoch University\Documents\Sea Urchin\Figures\Figure3\Diamond_sample1.tiff');
-greyscale = tiffreadVolume(filename);
-binary = imbinarize(greyscale,0.47);
+% filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\732nm_inner_interambulacral_plate_newly_derived.tiff';
+filename = ('C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\372_whole_plate_binary.tiff');
+binary = tiffreadVolume(filename);
+% greyscale = tiffreadVolume(filename);
+% binary = imbinarize(greyscale,0.47);
 %padding = padarray(temp,[2 0 8],0,'post');
 % temp = binary(1:1400,1:1750,1:1700);
-temp = binary(1:1100,1:1100,1:1050);
-size_subvolume = 50;
+temp = binary(1:1100,1:1050,1:1100);
+size_subvolume = 25;
 [subvolume] = subvolume_extraction(temp, size_subvolume);
 [volume_fraction] = solid_volume_fraction(subvolume);
 
 %% plot solid volume fraction overlaid onto binary image
 %z_slice = 22;
-y_slice = 21;
+y_slice = 22;
 
 figure(1);
 ax1 = axes;
 x_z_vol_frac = squeeze(volume_fraction(1:size(volume_fraction,1),y_slice,1:size(volume_fraction,3))); %example for a slice of y
 % x_y_vol_frac = squeeze(volume_fraction(1:size(x,1),1:size(x,1),1)); %example for a slice of z
-volume_frac_map = imresize(x_z_vol_frac,size_subvolume,"nearest"); %scales volume fraction matrix up by 
+volume_frac_map = imresize(x_z_vol_frac,size_subvolume,"bicubic"); %scales volume fraction matrix up by 
 % 50 to fit image volume and uses bicubic interpolation by default
 % "nearest"
 volume_frac_map_norm = rescale(volume_frac_map);
@@ -33,7 +34,7 @@ caxis([0 0.6])
 box off
 
 ax2 = axes;
-imagesc(squeeze(temp(:,525,:)),'AlphaData',0.3); axis equal tight; %displays slice through y
+imagesc(squeeze(temp(:,550,:)),'AlphaData',0.3); axis equal tight; %displays slice through y
 % imagesc(squeeze(binary(:,:,1)),'AlphaData',0.5) %displays slice through z
 set(ax2,'YDir','normal')
 box off

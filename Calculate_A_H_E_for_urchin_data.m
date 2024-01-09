@@ -1,5 +1,5 @@
 clear
-filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\Diamond_sample8.tiff';
+filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\Primitive_sample8.tiff';
 greyscale = tiffreadVolume(filename);
 binary = imbinarize(greyscale,0.51);
 PixelSize = 1.69;
@@ -10,6 +10,7 @@ parameters.EulerMethod="fitAreaMeanCurvatureAndEuler";
 
 fitResults=CalculateAreaMeancurvEulerBySteinerOfVoxelisedParSurf(binary,PixelSize,VoxelsToAnalyse,parameters);
 area=fitResults.area;
+area_per_volume = (area*10^-9)/0.004;
 meanc=fitResults.meanc;
 Euler=fitResults.Euler;
 layerD=fitResults.layerD;

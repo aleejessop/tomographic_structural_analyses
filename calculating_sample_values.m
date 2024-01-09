@@ -426,6 +426,176 @@ dissample3_CRT_solid_phase(dissample3_CRT_solid_phase==-1)=NaN; %change all nega
 meanCRT = mean(dissample3_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
 sdCRT = std(dissample3_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
 
+%% disordered 4
+
+sample_size = 94;
+pixel_res = 1.69;
+disordered_sample_pos = [490 1779-1112 547];
+
+% pore phase
+dissample4_CRT_pore_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample4_D_pore_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample4_solid_volume_pore_phase = padded_volume_fraction(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+data = dissample4_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(dissample4_solid_volume_pore_phase,'all');
+maxEDM = max(dissample4_D_pore_phase(:))*pixel_res; % in microns
+dissample4_CRT_pore_phase(dissample4_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample4_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample4_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+dissample4_CRT_solid_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample4_D_solid_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+maxEDM = max(dissample4_D_solid_phase(:))*pixel_res; % in microns
+dissample4_CRT_solid_phase(dissample4_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample4_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample4_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% disordered 5
+
+sample_size = 94;
+pixel_res = 1.69;
+disordered_sample_pos = [509 1779-900 587];
+
+% pore phase
+dissample5_CRT_pore_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_pore_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_solid_volume_pore_phase = padded_volume_fraction(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+data = dissample5_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(dissample5_solid_volume_pore_phase,'all');
+maxEDM = max(dissample5_D_pore_phase(:))*pixel_res; % in microns
+dissample5_CRT_pore_phase(dissample5_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+dissample5_CRT_solid_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_solid_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+maxEDM = max(dissample5_D_solid_phase(:))*pixel_res; % in microns
+dissample5_CRT_solid_phase(dissample5_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% disordered 6
+
+sample_size = 94;
+pixel_res = 1.69;
+disordered_sample_pos = [490 1779-663 483];
+
+% pore phase
+dissample5_CRT_pore_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_pore_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_solid_volume_pore_phase = padded_volume_fraction(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+data = dissample5_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(dissample5_solid_volume_pore_phase,'all');
+maxEDM = max(dissample5_D_pore_phase(:))*pixel_res; % in microns
+dissample5_CRT_pore_phase(dissample5_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+dissample5_CRT_solid_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_solid_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+maxEDM = max(dissample5_D_solid_phase(:))*pixel_res; % in microns
+dissample5_CRT_solid_phase(dissample5_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% disordered 7
+
+sample_size = 94;
+pixel_res = 1.69;
+disordered_sample_pos = [481 1779-1142 803];
+
+% pore phase
+dissample5_CRT_pore_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_pore_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_solid_volume_pore_phase = padded_volume_fraction(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+data = dissample5_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(dissample5_solid_volume_pore_phase,'all');
+maxEDM = max(dissample5_D_pore_phase(:))*pixel_res; % in microns
+dissample5_CRT_pore_phase(dissample5_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+dissample5_CRT_solid_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_solid_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+maxEDM = max(dissample5_D_solid_phase(:))*pixel_res; % in microns
+dissample5_CRT_solid_phase(dissample5_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% disordered 8
+
+sample_size = 94;
+pixel_res = 1.69;
+disordered_sample_pos = [462 1779-1192 368];
+
+% pore phase
+dissample5_CRT_pore_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_pore_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_solid_volume_pore_phase = padded_volume_fraction(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+data = dissample5_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(dissample5_solid_volume_pore_phase,'all');
+maxEDM = max(dissample5_D_pore_phase(:))*pixel_res; % in microns
+dissample5_CRT_pore_phase(dissample5_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+dissample5_CRT_solid_phase = padded_CRT(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+dissample5_D_solid_phase = padded_D(disordered_sample_pos(1):disordered_sample_pos(1)+sample_size,...
+    disordered_sample_pos(2):disordered_sample_pos(2)+sample_size,disordered_sample_pos(3):disordered_sample_pos(3)+sample_size);
+
+maxEDM = max(dissample5_D_solid_phase(:))*pixel_res; % in microns
+dissample5_CRT_solid_phase(dissample5_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(dissample5_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
 %% primitive 1
 
 sample_size = 94;
@@ -527,3 +697,208 @@ maxEDM = max(primitive2_D_solid_phase(:))*pixel_res; % in microns
 primitive2_CRT_solid_phase(primitive2_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
 meanCRT = mean(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
 sdCRT = std(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% primitive 4
+
+sample_size = 94;
+pixel_res = 1.69;
+primitive_sample_pos = [952 1779-1014 978];
+
+% pore phase
+primitive2_CRT_pore_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_pore_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_solid_volume_pore_phase = padded_volume_fraction(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+data = primitive2_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(primitive2_solid_volume_pore_phase,'all');
+maxEDM = max(primitive2_D_pore_phase(:))*pixel_res; % in microns
+primitive2_CRT_pore_phase(primitive2_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+primitive2_CRT_solid_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_solid_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+maxEDM = max(primitive2_D_solid_phase(:))*pixel_res; % in microns
+primitive2_CRT_solid_phase(primitive2_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% primitive 5
+
+sample_size = 94;
+pixel_res = 1.69;
+primitive_sample_pos = [903 1779-766 378];
+
+% pore phase
+primitive2_CRT_pore_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_pore_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_solid_volume_pore_phase = padded_volume_fraction(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+data = primitive2_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(primitive2_solid_volume_pore_phase,'all');
+maxEDM = max(primitive2_D_pore_phase(:))*pixel_res; % in microns
+primitive2_CRT_pore_phase(primitive2_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+primitive2_CRT_solid_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_solid_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+maxEDM = max(primitive2_D_solid_phase(:))*pixel_res; % in microns
+primitive2_CRT_solid_phase(primitive2_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% primitive 6
+
+sample_size = 94;
+pixel_res = 1.69;
+primitive_sample_pos = [859 1779-1051 374];
+
+% pore phase
+primitive2_CRT_pore_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_pore_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_solid_volume_pore_phase = padded_volume_fraction(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+data = primitive2_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(primitive2_solid_volume_pore_phase,'all');
+maxEDM = max(primitive2_D_pore_phase(:))*pixel_res; % in microns
+primitive2_CRT_pore_phase(primitive2_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+primitive2_CRT_solid_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_solid_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+maxEDM = max(primitive2_D_solid_phase(:))*pixel_res; % in microns
+primitive2_CRT_solid_phase(primitive2_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% primitive 7
+
+sample_size = 94;
+pixel_res = 1.69;
+primitive_sample_pos = [840 1779-1358 985];
+
+% pore phase
+primitive2_CRT_pore_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_pore_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_solid_volume_pore_phase = padded_volume_fraction(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+data = primitive2_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(primitive2_solid_volume_pore_phase,'all');
+maxEDM = max(primitive2_D_pore_phase(:))*pixel_res; % in microns
+primitive2_CRT_pore_phase(primitive2_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+primitive2_CRT_solid_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_solid_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+maxEDM = max(primitive2_D_solid_phase(:))*pixel_res; % in microns
+primitive2_CRT_solid_phase(primitive2_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% primitive 8
+
+sample_size = 94;
+pixel_res = 1.69;
+primitive_sample_pos = [906 1779-1251 985];
+
+% pore phase
+primitive2_CRT_pore_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_pore_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_solid_volume_pore_phase = padded_volume_fraction(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+data = primitive2_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(primitive2_solid_volume_pore_phase,'all');
+maxEDM = max(primitive2_D_pore_phase(:))*pixel_res; % in microns
+primitive2_CRT_pore_phase(primitive2_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+primitive2_CRT_solid_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_solid_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+maxEDM = max(primitive2_D_solid_phase(:))*pixel_res; % in microns
+primitive2_CRT_solid_phase(primitive2_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+%% DiamondtoPrimitive1
+
+sample_size = 94;
+pixel_res = 1.69;
+primitive_sample_pos = [781 1779-999 628];
+
+% pore phase
+primitive2_CRT_pore_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_pore_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_solid_volume_pore_phase = padded_volume_fraction(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+data = primitive2_CRT_solid_phase; sliceview
+
+solid_volume_fraction = mean(primitive2_solid_volume_pore_phase,'all');
+maxEDM = max(primitive2_D_pore_phase(:))*pixel_res; % in microns
+primitive2_CRT_pore_phase(primitive2_CRT_pore_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_pore_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
+
+% solid phase
+primitive2_CRT_solid_phase = padded_CRT(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+primitive2_D_solid_phase = padded_D(primitive_sample_pos(1):primitive_sample_pos(1)+sample_size,...
+    primitive_sample_pos(2):primitive_sample_pos(2)+sample_size,primitive_sample_pos(3):primitive_sample_pos(3)+sample_size);
+
+maxEDM = max(primitive2_D_solid_phase(:))*pixel_res; % in microns
+primitive2_CRT_solid_phase(primitive2_CRT_solid_phase==-1)=NaN; %change all negative 1 values to nans
+meanCRT = mean(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %mean in microns
+sdCRT = std(primitive2_CRT_solid_phase(:),'omitnan')*pixel_res; %standard deviation in microns
+
