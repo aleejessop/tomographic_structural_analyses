@@ -1,8 +1,8 @@
 clear
-filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\Dragonfly\Primitive_sample8.tiff';
+filename = 'C:\Users\20220428\OneDrive - Murdoch University\Documents\MATLAB\Sea_Urchin\data\greyscale\Sea Urchin Diamond_111.tiff';
 greyscale = tiffreadVolume(filename);
 binary = imbinarize(greyscale,0.51);
-PixelSize = 1.69;
+PixelSize = 0.7;
 VoxelsToAnalyse = [48,142;48,142;48,142];
 parameters.fractionEuclidDistanceToFit=0.50;
 parameters.EulerMethod="fitAreaMeanCurvatureAndEuler";
